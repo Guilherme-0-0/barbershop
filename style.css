@@ -1,0 +1,76 @@
+ body{
+
+    background-image: url(pasta1/Backgroundimg.png);
+    background-size: cover;
+    background-repeat: no-repeat;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    overflow-x: hidden;
+ }
+ 
+ 
+ .mask{
+   -webkit-mask-image: url(pasta1/LogoP_G_A.png);
+    mask-image: url(pasta1/LogoP_G_A.png);
+    mask-repeat: no-repeat;
+    mask-size: 500px;
+    margin-left: 500px;
+    margin-top: -70px;
+    margin-right: -200px;
+ }
+ .container{
+    display: flex;
+ }
+ #title{
+    margin-left: 150px;
+    margin-top: 63px;
+    padding: 12px;
+    background-color: black;
+    border-radius: 11px;
+ }
+   
+    @property --angle{
+        syntax: '<angle>';
+        initial-value: 0deg;
+        inherits: false;
+    }
+    .boxtitle{
+        --angle: 0deg;
+        margin-left: -205px;
+        z-index: -1;
+        border-radius: 10px;
+        background-image: conic-gradient(from var(--angle),transparent 20%, blue,transparent 60%, red);
+        padding: 3px;
+        animation: spin 4s linear infinite;
+        animation-timing-function: infinite;
+      
+
+    }
+    @keyframes spin{
+        0%{
+            --angle: 0deg;
+        }
+        100%{
+           --angle: 360deg;
+        }
+    }
+    #boxp{
+        margin-left: 200px;
+        margin-top: -5px;
+        padding: 3.5px;
+        background-color: black;
+        border-radius: 11px;
+
+    }
+   .boxpa{
+    margin-top: -8px;
+   margin-left: -317px;
+   z-index: -1;
+    height: 24px;
+    width: 310px;
+    padding: 3px;
+    background-image: conic-gradient(blue, red);
+    border-radius: 10px;
+
+   }
