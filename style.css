@@ -1,0 +1,189 @@
+ body{
+
+    background-image: url(pasta1/Backgroundimg.png);
+    background-size: cover;
+    background-repeat: no-repeat;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    overflow-x: hidden;
+ }
+ 
+ 
+ .mask{
+   -webkit-mask-image: url(pasta1/LogoP_G_A.png);
+    mask-image: url(pasta1/LogoP_G_A.png);
+    mask-repeat: no-repeat;
+    mask-size: 500px;
+    margin-left: 500px;
+    margin-top: -70px;
+    margin-right: -200px;
+ }
+ .container{
+    display: flex;
+ }
+ #title{
+    color: white;
+    margin-left: 150px;
+    margin-top: 63px;
+    padding: 12px;
+    background-color: black;
+    border-radius: 11px;
+ }
+   
+    @property --angle{
+        syntax: '<angle>';
+        initial-value: 0deg;
+        inherits: false;
+    }
+    .boxtitle{
+        --angle: 0deg;
+        margin-left: -205px;
+        z-index: -1;
+        border-radius: 10px;
+        background-image: conic-gradient(from var(--angle),transparent 20%, blue,transparent 60%, red);
+        padding: 3px;
+        animation: spin 4s linear infinite;
+        animation-timing-function: infinite;
+      
+
+    }
+    @keyframes spin{
+     0%{
+         --angle: 0deg;}   
+      100%{
+            --angle: 360deg;
+        }
+    }
+   
+    #boxp{
+        color: white;
+        margin-left: 200px;
+        margin-top: -5px;
+        padding: 3.5px;
+        background-color: black;
+        border-radius: 11px;
+
+    }
+   .boxpa{
+    margin-top: -8px;
+   margin-left: -317px;
+   z-index: -1;
+    height: 24px;
+    width: 310px;
+    padding: 3px;
+    background-image: conic-gradient(blue, red);
+    border-radius: 10px;
+
+   }
+   #boxpok{
+  
+    margin-top: -170px;
+   }
+   #pharagraph{
+      border-radius: 10px;
+    height: 400px;
+    width: 500px;
+    margin-right: 800px;
+    margin-left: 200px;
+    background-color: black;
+    color: white;
+
+   }
+   
+   
+   .boxp2{
+      border-radius: 10px;
+    z-index: -1;
+    margin-top: 12px;
+    margin-left: -1305px;
+    background-image: conic-gradient(from var(--angle),transparent 20%, blue,transparent 60%, red);
+    display: flex;
+    height: 408px;
+    width:508px;
+    animation: spin infinite 4s linear;
+      animation-timing-function: infinite;
+
+   }
+   .caixa{
+    background-color: black;
+      height: 100px;
+      width: 100px;
+      margin-left: 200px;
+      margin-top: 400px;
+      position: relative;
+      animation: movies;
+      animation-duration: 4s ;
+      animation-delay: 200ms;
+     animation-iteration-count: infinite;
+     border-radius: 50px;
+
+   }
+   #boxg{
+      background-color: black;
+      height: 100px;
+      width: 100px;
+      margin-left: 200px;
+      margin-top: 400px;
+      position: relative;
+      animation: movies;
+      animation-duration: 4s ;
+      animation-delay: 400ms;
+     animation-iteration-count: infinite;
+     border-radius: 50px;
+   }
+   #boxg1{
+      background-color: black;
+      height: 100px;
+      width: 100px;
+      margin-left: 200px;
+      margin-top: 400px;
+      position: relative;
+      animation: movies;
+      animation-duration: 4s ;
+      animation-delay: 500ms;
+     animation-iteration-count: infinite;
+     border-radius: 50px;
+   }
+   #boxg2{
+      background-color: black;
+      height: 100px;
+      width: 100px;
+      margin-left: 200px;
+      margin-top: 400px;
+      position: relative;
+      animation: movies;
+      animation-duration: 4s ;
+      animation-delay: 600ms;
+     animation-iteration-count: infinite;
+     border-radius: 50px;
+   }
+   #boxg3{
+      background-color: black;
+      height: 100px;
+      width: 100px;
+      margin-left: 200px;
+      margin-top: 400px;
+      position: relative;
+      animation: movies;
+      animation-duration: 4s ;
+      animation-delay: 700ms;
+     animation-iteration-count: infinite;
+     border-radius: 50px;
+   }
+
+   @keyframes movies{
+      0% { background-color: blue;left: 0px; top: 0px;}
+      50% { background-color: yellow;left: 0px; top: -200px;}
+      75% { background-color: red;left: 0px; top: 0px;}
+      100% { background-color: blue;left: 0px; top: 0px;}
+      }
+      @keyframes{
+         0%{
+            rotate(0deg);
+         }
+         100%{
+            rotate(360deg);
+         }
+      }
+   
