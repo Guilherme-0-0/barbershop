@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Área de Login com Botão Fugitivo</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #f0f0f0;
+        }
+
+        .login-container {
+            background-color: white;
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            position: relative;
+            width: 300px;
+        }
+
+        h2 {
+            margin-bottom: 1.5rem;
+            color: #1a1a1a;
+        }
+
+        .input-group {
+            margin-bottom: 1rem;
+            position: relative;
+        }
+
+        input {
+            width: 100%;
+            padding: 0.8rem;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 1rem;
+        }
+
+        /* Estilo do botão de login */
+        #login-btn {
+            width: 40px;
+            /* Botão pequeno */
+            height: 40px;
+            /* Botão redondo */
+            background-color: #ff4444;
+            color: white;
+            border: none;
+            border-radius: 50%;
+            /* Totalmente redondo */
+            font-size: 0.8rem;
+            cursor: pointer;
+            position: absolute;
+            transition: all 0.2s ease;
+            left: 50%;
+            top: 80%;
+            /* Posição inicial ajustada */
+            transform: translateX(-50%);
+        }
+
+        #login-btn.active {
+            position: static;
+            transform: none;
+            background-color: #00cc00;
+            margin-top: 1rem;
+        }
+
+        #login-btn.active:hover {
+            background-color: #009900;
+        }
+
+        /* Estilo do ícone de olho */
+        .eye-icon {
+            position: absolute;
+            right: 10px;
+            top: 50%;
+            transform: translateY(-50%);
+            cursor: pointer;
+            font-size: 1.2rem;
+            color: #666;
+        }
+
+        .eye-icon.active {
+            animation: encrypt 0.5s ease;
+        }
+
+        @keyframes encrypt {
+            0% {
+                transform: translateY(-50%) rotate(0deg);
+            }
+
+            25% {
+                transform: translateY(-50%) rotate(90deg);
+            }
+
+            50% {
+                transform: translateY(-50%) rotate(180deg);
+            }
+
+            75% {
+                transform: translateY(-50%) rotate(270deg);
+            }
+
+            100% {
+                transform: translateY(-50%) rotate(360deg);
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="login-container">
+        <h2>Login</h2>
+        <div class="input-group">
+            <input type="email" id="email" placeholder="Digite seu e-mail" required>
+        </div>
+        <div class="input-group">
+            <input type="password" id="password" placeholder="Digite sua senha" required>
+            <span class="eye-icon">👁️</span>
+        </div>
+        <button id="login-btn">OK</button>
+    </div>
+
+    <script>
+        const emailInput = document.getElementById('email');
+        const passwordInput = document.getElementById('password');
+        const button = document.getElementById('login-btn');
+        const eyeIcon = document.querySelector('.eye-icon');
+
+        // Verifica os campos em tempo real
+        function checkInputs() {
+            const email = emailInput.value.trim();
+            const password = passwordInput.value.trim();
+
+            if (email !== '' && password !== '') {
+                button.classList.add('active');
+            } else {
+                button.classList.remove('active');
+            }
+        }
+
+        emailInput.addEventListener('input', checkInputs);
+        passwordInput.addEventListener('input', checkInputs);
+
+        // Faz o botão fugir enquanto não estiver ativo
+        button.addEventListener('mouseover', () => {
+            if (!button.classList.contains('active')) {
+                const container = document.querySelector('.login-container');
+                const maxX = container.offsetWidth - button.offsetWidth - 10; // Margem de segurança
+                const maxY = container.offsetHeight - button.offsetHeight - 10;
+                const newX = Math.random() * maxX;
+                const newY = Math.random() * maxY;
+
+                button.style.left = `${newX}px`;
+                button.style.top = `${newY}px`;
+                button.style.transform = 'none'; // Remove o translateX inicial
+            }
+        });
+
+        // Alterna entre mostrar/esconder a senha e anima o olho
+        eyeIcon.addEventListener('click', () => {
+            if (passwordInput.type === 'password') {
+                passwordInput.type = 'text';
+                eyeIcon.classList.add('active');
+            } else {
+                passwordInput.type = 'password';
+                eyeIcon.classList.add('active');
+            }
+            // Remove a classe 'active' após a animação terminar
+            setTimeout(() => {
+                eyeIcon.classList.remove('active');
+            }, 500); // Duração da animação
+        });
+
+        // Ação ao clicar no botão (quando ativo)
+        button.addEventListener('click', () => {
+            if (button.classList.contains('active')) {
+                alert('Login realizado com sucesso!');
+            }
+        });
+    </script>
+</body>
+
+</html>

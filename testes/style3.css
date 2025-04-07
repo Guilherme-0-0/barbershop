@@ -1,0 +1,88 @@
+body {
+  margin: 0;
+  padding: 0;
+  background-color: #333;
+  height: 2000px;
+  /* Altura longa para permitir scroll, se desejar */
+}
+
+/* Estilo comum para todas as bordas */
+.border-top,
+.border-right,
+.border-bottom,
+.border-left {
+  position: fixed;
+  background-size: 200% 100%;
+  /* Para bordas horizontais */
+  animation: move-light 4s linear infinite;
+}
+
+/* Borda superior */
+.border-top {
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 5px;
+  background: linear-gradient(to right, transparent 0%, #00ff00 50%, transparent 100%);
+}
+
+/* Borda direita */
+.border-right {
+  top: 0;
+  right: 0;
+  width: 5px;
+  height: 100%;
+  background: linear-gradient(to bottom, transparent 0%, #00ff00 50%, transparent 100%);
+  background-size: 100% 200%;
+  /* Para bordas verticais */
+  animation: move-light-vertical 4s linear infinite;
+  animation-delay: 1s;
+  /* Começa 1s após a borda superior */
+}
+
+/* Borda inferior */
+.border-bottom {
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 5px;
+  background: linear-gradient(to left, transparent 0%, #00ff00 50%, transparent 100%);
+  background-size: 200% 100%;
+  animation-delay: 2s;
+  /* Começa 2s após o início */
+}
+
+/* Borda esquerda */
+.border-left {
+  top: 0;
+  left: 0;
+  width: 5px;
+  height: 100%;
+  background: linear-gradient(to top, transparent 0%, #00ff00 50%, transparent 100%);
+  background-size: 100% 200%;
+  animation: move-light-vertical 4s linear infinite;
+  animation-delay: 3s;
+  /* Começa 3s após o início */
+}
+
+/* Animação para bordas horizontais */
+@keyframes move-light {
+  0% {
+    background-position: 0% 0%;
+  }
+
+  100% {
+    background-position: 100% 0%;
+  }
+}
+
+/* Animação para bordas verticais */
+@keyframes move-light-vertical {
+  0% {
+    background-position: 0% 0%;
+  }
+
+  100% {
+    background-position: 0% 100%;
+  }
+}
